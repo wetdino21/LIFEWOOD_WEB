@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lifewood</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link rel="icon" href="images/browser_lw_logo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap/dist/css/jsvectormap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jsvectormap"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsvectormap/dist/maps/world.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <img src="images/lifewood_white_logo.svg" alt="Lifewood Logo">
+                    <span class="leaf leaf1">🍃</span>
+                    <span class="leaf leaf2">🍃</span>
+                    <span class="leaf leaf3">🍃</span>
+                    <span class="leaf leaf4">🍃</span>
+                </a>
+                <button class="menu-toggle">☰</button>
+                <ul class="nav-links">
+                    <li><a href="#services">Service</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#transformation">Transformation</a></li>
+                    <li><a href="#global-scale">Global Scale</a></li>
+                    <li><a href="#about">Our Company</a></li>
+                    <li><a href="#careers">Careers</a></li>
+                    <li><a
+                            href="mailto:info@lifewood.com?subject=Contact%20Form%20Submission&body=First%20Name:%0D%0ALast%20Name:%0D%0AEmail:%0D%0ACompany:%0D%0ACountry:%0D%0APhone%20Number:%0D%0AMessage:">Contact</a>
+                    </li>
+                    <!-- <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@lifewood.com&su=Contact%20Form%20Submission&body=First%20Name:%0D%0ALast%20Name:%0D%0AEmail:%0D%0ACompany:%0D%0ACountry:%0D%0APhone%20Number:%0D%0AMessage:"
+                            target="_blank">Contact</a>
+                    </li> -->
+                </ul>
+                <button class="apply-now" data-toggle="modal" data-target="#applyModal">
+                    Apply Now
+                    <span class="leaf leaf1">🍃</span>
+                    <span class="leaf leaf2">🍃</span>
+                    <span class="leaf leaf3">🍃</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Apply Now Modal -->
+    <div class="modal fade" id="applyModal" tabindex="-1" role="dialog" aria-labelledby="applyModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="applyModalLabel">Application Form</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" style="padding-bottom: 20px;">
+                    <!-- Update the form in your index.html file -->
+                    <form id="applyForm" enctype="multipart/form-data" novalidate>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="first_name">First Name</label>
+                                    <input type="text" class="form-control custom-input" id="first_name"
+                                        name="first_name" required>
+                                    <div class="custom-invalid-feedback">Please enter your first name.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="last_name">Last Name</label>
+                                    <input type="text" class="form-control custom-input" id="last_name" name="last_name"
+                                        required>
+                                    <div class="custom-invalid-feedback">Please enter your last name.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control custom-input" id="email" name="email"
+                                        required>
+                                    <div class="custom-invalid-feedback">Please enter a valid email address.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone_number">Contact Number</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <select class="form-control" id="country_code" name="country_code">
+                                                <option value="+63">+63 (Philippines)</option>
+                                            </select>
+                                        </div>
+                                        <input type="tel" class="custom-input" id="phone_number" name="phone_number"
+                                            placeholder="09XXXXXXXXX" pattern="[0-9]{11}" required>
+                                        <div class="custom-invalid-feedback">Please enter a valid contact
+                                            number.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="address">Full Address</label>
+                                    <textarea class="form-control custom-input" id="address" name="address" rows="3"
+                                        required></textarea>
+                                    <div class="custom-invalid-feedback">Please enter your full address.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="resume">Resume / CV</label>
+                                    <input type="file" class="form-control-file custom-input" id="resume" name="resume"
+                                        accept=".pdf" required>
+                                    <div class="custom-invalid-feedback">Please upload your resume.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="position">Job Position</label>
+                                    <select class="form-control custom-input" id="position" name="position" required>
+                                        <option value="" disabled selected>Select Position</option>
+                                        <option value="project support">Project Support</option>
+                                        <option value="HR">HR</option>
+                                        <option value="AI executive">Artificial Intelligence Executive (AIE)</option>
+                                        <option value="internship">Internship</option>
+                                    </select>
+                                    <div class="custom-invalid-feedback">Please select a job position.</div>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="successModalLabel">Success</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Application submitted successfully!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h1>FUTURE POWER</h1>
+            <p>HARNESSING THE POTENTIAL OF AI</p>
+        </div>
+    </div>
+
+    <div class="news-section">
+        <div class="news-content">
+            <h1>IN THE NEWS</h1>
+            <p>Exclusive coverage from LIFEWOOD ANNUAL CONFERENCE</p>
+
+            <div class="youtube-channel">
+                <a href="https://www.youtube.com/@LifewoodDataTechnology" target="_blank">
+                    <i class="fa-brands fa-youtube fa-bounce fa-2xl" style="color: #e00000;"></i>
+                </a>
+                <div class="channel-text">
+                    <span>LIFEWOOD</span>
+                    <span>YOUTUBE</span>
+                    <span>CHANNEL</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <main>
+            <section id="services" class="service-carousel">
+                <h2 class="line-title" data-en="Our Services" data-zh="我们的服务">SERVICES</h2>
+                <label class="subtitle">Empowering innovation with cutting-edge AI solutions and intelligent
+                    automation.</label>
+                <div class="owl-carousel custom-carousel owl-theme"></div>
+                <div class="lbl1">
+                    With Lifewood, leveraging AI data is the path to success.
+                </div>
+            </section>
+
+            <section id="projects">
+                <h2 class="line-title" data-en="Our Projects" data-zh="我们的项目">PROJECT</h2>
+                <label class="subtitle">Transforming ideas into impactful solutions with advanced technology and
+                    innovation.</label>
+                <div class="slider">
+                    <div class="list">
+                        <!-- Project items will be dynamically generated here -->
+                    </div>
+
+                    <!-- button arrows -->
+                    <div class="arrows">
+                        <button id="prev">
+                            < </button>
+                                <button id="next">></button>
+                    </div>
+                    <div class="thumbnail">
+                        <!-- Thumbnails will be dynamically generated here -->
+                    </div>
+                </div>
+            </section>
+
+            <section id="transformation" class="transformation-section">
+                <h2 class="line-title" data-en="transformation" data-zh="转变">TRANSFORMATION</h2>
+                <p class="subtitle">Data transformation converts data into a more usable format for efficient and
+                    reliable analysis. It enables better decision-making, such as gaining business insights or tracking
+                    underground cable installations.</p>
+                <div class="container">
+                    <div class="card-container">
+                        <div class="card scroll-element">
+                            <p2>And of course, you can apply mathematical functions for machine learning or data science
+                                purposes. The scale, automation and trust required by modern corporations can only be
+                                achieved with AI/ML capabilities.</p2>
+                        </div>
+                        <div class="card scroll-element">
+                            <p2>This requires data sifted and transformed to deliver a reliable source that: Ensures your
+                                data is usable, trustworthy and manageable: Facilitates cost-efficient storage: Improves
+                                ease of analysis: Prioritises resources: And limits compliance risks.</p2>
+                        </div>
+                    </div>
+                    <div class="video-container scroll-element">
+                        <video src="videos/transformation-video.mp4" controls></video>
+                    </div>
+                    <h2 class="scroll-element">TRANSFORMATION IS MORE</h2>
+                    <p class="scroll-element">But Transformation is More than something we do with Data. At Lifewood,
+                        it’s part of our DNA. Driven by a culture of innovation, transformation is a constant companion,
+                        initiating the consideration of endless possibilities; requiring a tolerance of risk and
+                        uncertainty as new directions necessitate experimentation, testing and sometimes failure.</p>
+                    <p class="scroll-element">This is the path to transformation: It's not a goal in itself, It's the
+                        road less travelled that leads to unlimited possibilities. Be amazed.</p>
+                </div>
+            </section>
+
+            <section id="global-scale">
+                <h2 class="line-title" data-en="Global Scale" data-zh="全球规模">Global Scale</h2>
+                <label class="subtitle">Expanding boundaries and making a worldwide impact through innovation and
+                    technology.</label>
+
+                <div class="global-scale-container">
+                    <div id="map"></div>
+                    <div class="country-list">
+                        <ul>
+                            <li>Hong Kong</li>
+                            <li>China</li>
+                            <li>Vietnam</li>
+                            <li>Philippines</li>
+                            <li>Malaysia</li>
+                            <li>Singapore</li>
+                            <li>Indonesia</li>
+                            <li>Bangladesh</li>
+                            <li>India</li>
+                            <li>Middle East</li>
+                            <li>West Africa</li>
+                            <li>Serbia</li>
+                            <li>Finland</li>
+                            <li>Germany</li>
+                            <li>United Kingdom</li>
+                            <li>United States of America</li>
+                            <li>South America</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="stats-container">
+                    <div class="stat-box">
+                        <div class="stat-number">34,738</div>
+                        <div class="stat-text">ONLINE<br>WORKFORCE</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">25</div>
+                        <div class="stat-text">DELIVERY<br>SITES</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">16</div>
+                        <div class="stat-text">COUNTRIES ON 4 CONTINENTS</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-text">LANGUAGE<br>CAPABILITIES</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="about">
+                <h1 data-en="About Us" data-zh="关于我们">About Us</h1>
+                <p data-en="Information about the company." data-zh="关于公司的信息。">Information about the company.</p>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-box">
+                <div class="footer-logo">
+                    <a href="index.html">
+                        <img src="images/lifewood_white_logo.svg" alt="Lifewood Logo">
+                    </a>
+                    <span class="box-title"></span>
+                    <div class="footer-contact">
+                        <div class="contact-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>info.ph@lifewood.com</span>
+                        </div>
+
+                        <div class="contact-item">
+                            <i class="fa-solid fa-map-marker-alt"></i>
+                            &nbsp;
+                            <span>
+                                I2 Building Ground Floor Jose Del Mar St. Asiatown, Salinas Drive, Cebu City,
+                                Philippines
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-box">
+                <ul class="footer-links">
+                    <span class="box-title">MENU:</span>
+                    <li><a href="#services">Service</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#transformation">Transformation</a></li>
+                    <li><a href="#global-scale">Global Scale</a></li>
+                    <li><a href="#about">Our Company</a></li>
+                    <li><a href="#careers">Careers</a></li>
+                    <li><a
+                            href="mailto:info@lifewood.com?subject=Contact%20Form%20Submission&body=First%20Name:%0D%0ALast%20Name:%0D%0AEmail:%0D%0ACompany:%0D%0ACountry:%0D%0APhone%20Number:%0D%0AMessage:">Contact</a>
+                    </li>
+                    <!-- <li><a
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=info@lifewood.com&su=Contact%20Form%20Submission&body=First%20Name:%0D%0ALast%20Name:%0D%0AEmail:%0D%0ACompany:%0D%0ACountry:%0D%0APhone%20Number:%0D%0AMessage:"
+                    target="_blank">Contact</a>
+                </li> -->
+                </ul>
+            </div>
+
+            <div class="footer-box">
+                <div class="language-selector">
+                    <span class="box-title">LANGUAGE:</span>
+                    <select id="language">
+                        <option value="en">English</option>
+                        <option value="zh">Chinese</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="footer-box">
+                <div class="follow-us">
+                    <span class="box-title">FOLLOW US</span>
+                    <div class="social-icons">
+                        <a href="https://www.youtube.com/@LifewoodDataTechnology" target="_blank">
+                            <i class="fa-brands fa-youtube fa-2xl"></i>
+                        </a>
+                        <a href="https://www.facebook.com/LifewoodPH/" target="_blank">
+                            <i class="fa-brands fa-facebook fa-2xl"></i>
+                        </a>
+                        <a href="https://www.instagram.com/lifewoodph/" target="_blank">
+                            <i class="fa-brands fa-instagram fa-2xl"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/lifewood-data-technology-ltd./" target="_blank">
+                            <i class="fa-brands fa-linkedin fa-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="be-amazed">
+            <div class="footer-image-row">
+                <img src="images/be_amazed_orange.svg" alt="Be Amazed Orange">
+            </div>
+            <div class="footer-image-row">
+                <img src="images/be_amazed.svg" alt="Be Amazed">
+            </div>
+        </div>
+    </footer>
+
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Include Owl Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <!-- Include Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/transformation.js"></script>
+    <script src="js/global-scale.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/application.js"></script>
+</body>
+
+</html>

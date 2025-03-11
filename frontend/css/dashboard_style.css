@@ -1,0 +1,104 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    padding-top: 80px;
+}
+
+.dashboard-header {
+    background-color: #045940;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    padding: 10px 50px;
+}
+
+.dashboard-header .box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dashboard-header .logo img {
+    height: 30px;
+}
+
+.dashboard-header h1 {
+    margin: 0;
+    font-size: 28px;
+    flex-grow: 1;
+    text-align: center;
+}
+
+table.dataTable {
+    width: 100%;
+    margin: 0 auto;
+    clear: both;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+table.dataTable thead th {
+    border-bottom: 1px solid #ddd;
+    background-color: #045940;
+    color: white;
+}
+
+table.dataTable tbody td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+table.dataTable tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table.dataTable tbody tr:hover {
+    background-color: #e6e6e6;
+}
+
+table.dataTable tbody tr td a {
+    color: #045940;
+    text-decoration: none;
+}
+
+table.dataTable tbody tr td a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    body {
+        padding-top: 120px;
+    }
+
+    .dashboard-header .box {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .dashboard-header h1 {
+        font-size: 20px;
+        margin-top: 10px;
+    }
+
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    table.dataTable {
+        width: 100%;
+        overflow-x: auto;
+        display: block;
+    }
+
+    table.dataTable thead th,
+    table.dataTable tbody td {
+        white-space: nowrap;
+    }
+}
