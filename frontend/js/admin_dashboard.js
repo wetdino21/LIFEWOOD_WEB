@@ -20,18 +20,13 @@ $(document).ready(function () {
             {
                 data: 'resume',
                 render: function (data, type, row) {
-                    return `<a href="/api/fetch_applications/${row.id}/resume" target="_blank" class="btn">
-                                <i class="fa-solid fa-file-pdf" style="color: #f00000;"></i> View
-                            </a>`;
+                    return `<a href="/api/fetch_applications/${row.id}/resume" target="_blank" class="btn" style="background-color: #045940; color: white;">
+                    <i class="fa-solid fa-file-pdf" style="color: white;"></i> View
+                </a>`;
                 }
             }
-        ]
-    });
-
-    // Logout button functionality
-    $('#logoutButton').click(function () {
-        localStorage.removeItem('token');
-        window.location.href = 'login_admin.html';
+        ],
+        order: [[6, 'desc']]
     });
 });
 
@@ -55,12 +50,6 @@ if (!localStorage.getItem('token')) {
     window.location.href = 'login_admin.html';
 }
 
-// Logout button functionality
-$('#logoutButton').click(function () {
-    localStorage.removeItem('token');
-    window.location.href = 'login_admin.html';
-});
-
 // Prevent going back to the dashboard after logout
 window.addEventListener('pageshow', function (event) {
     if (!localStorage.getItem('token')) {
@@ -68,8 +57,28 @@ window.addEventListener('pageshow', function (event) {
     }
 });
 
+// Logout button functionality
 $('#logoutButton').click(function () {
-    localStorage.removeItem('token');
-    history.replaceState(null, null, 'login_admin.html'); // Replace dashboard with login in history
-    window.location.href = 'login_admin.html';
+    Swal.fire({
+        title: 'Confirm Logout',
+        text: "Are you sure you want to logout?",
+        icon: 'warning',
+        iconColor: '#d33',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Yes'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            localStorage.removeItem('token');
+            history.replaceState(null, null, 'login_admin.html'); // Replace dashboard with login in history
+            window.location.href = 'login_admin.html';
+        }
+    });
 });
+
+// $('#logoutButton').click(function () {
+//     localStorage.removeItem('token');
+//     history.replaceState(null, null, 'login_admin.html'); // Replace dashboard with login in history
+//     window.location.href = 'login_admin.html';
+// });

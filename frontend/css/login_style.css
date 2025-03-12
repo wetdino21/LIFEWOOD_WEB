@@ -1,5 +1,5 @@
 body {
-    background: url('../images/login_bg4.jpg') no-repeat center center fixed;
+    background: url('../images/login_bg.jpg') no-repeat center center fixed;
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -17,7 +17,7 @@ body::before {
     right: 0;
     bottom: 0;
     background: inherit;
-    filter: blur(5px);
+    /* filter: blur(5px); */
     z-index: -1;
 }
 
@@ -29,7 +29,10 @@ body::before {
     width: 100%;
     max-width: 400px;
     text-align: center;
-    position: relative;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 1;
 }
 
@@ -74,28 +77,15 @@ body::before {
 
 .toggle-password {
     cursor: pointer;
+    border-top-right-radius: 5px !important;
+    border-bottom-right-radius: 5px !important;
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
-    .login-container {
-        padding: 20px;
-        max-width: 90%;
-    }
-
-    .login-header h2 {
-        font-size: 20px;
-    }
-
-    .login-header .logo img {
-        height: 40px;
-    }
-}
-
 @media (max-width: 480px) {
     .login-container {
         padding: 15px;
-        max-width: 100%;
+        max-width: 90%;
     }
 
     .login-header h2 {
@@ -105,4 +95,11 @@ body::before {
     .login-header .logo img {
         height: 35px;
     }
+}
+
+/* Hide Bootstrap validation icons */
+.was-validated .form-control:valid,
+.was-validated .form-control:invalid {
+    background-image: none !important;
+    padding-right: 0 !important;
 }

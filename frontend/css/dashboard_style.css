@@ -102,3 +102,20 @@ table.dataTable tbody tr td a:hover {
         white-space: nowrap;
     }
 }
+
+/* Change the color of the sort active button to orange */
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    background-color: orange !important;
+    color: white !important;
+    border: none !important;
+}
+
+/* Change the color of the sort active button in the header */
+.dataTables_wrapper .dataTables_sorter,
+.dataTables_wrapper .dataTables_sorter:hover,
+.dataTables_wrapper .dataTables_sorter:active {
+    background-color: orange !important;
+    color: white !important;
+    border: none !important;
+}

@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap/dist/css/jsvectormap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/jsvectormap"></script>
     <script src="https://cdn.jsdelivr.net/npm/jsvectormap/dist/maps/world.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
@@ -37,12 +38,12 @@
                     <li><a href="#global-scale">Global Scale</a></li>
                     <li><a href="#about">Our Company</a></li>
                     <li><a href="#careers">Careers</a></li>
-                    <li><a
+                    <!-- <li><a
                             href="mailto:info@lifewood.com?subject=Contact%20Form%20Submission&body=First%20Name:%0D%0ALast%20Name:%0D%0AEmail:%0D%0ACompany:%0D%0ACountry:%0D%0APhone%20Number:%0D%0AMessage:">Contact</a>
-                    </li>
-                    <!-- <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@lifewood.com&su=Contact%20Form%20Submission&body=First%20Name:%0D%0ALast%20Name:%0D%0AEmail:%0D%0ACompany:%0D%0ACountry:%0D%0APhone%20Number:%0D%0AMessage:"
-                            target="_blank">Contact</a>
                     </li> -->
+                    <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@lifewood.com&su=Contact%20Form%20Submission&body=First%20Name:%0D%0ALast%20Name:%0D%0AEmail:%0D%0ACompany:%0D%0ACountry:%0D%0APhone%20Number:%0D%0AMessage:"
+                            target="_blank">Contact</a>
+                    </li>
                 </ul>
                 <button class="apply-now" data-toggle="modal" data-target="#applyModal">
                     Apply Now
@@ -60,7 +61,11 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="applyModalLabel">Application Form</h5>
+
+                    <h5 class="modal-title modal-main-label" id="applyModalLabel">APPLICATION FORM</h5>
+                    <div class="orange-leaf-application">
+                        <img src="images/be_amazed_orange.svg" alt="Lifewood Logo">
+                    </div>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -91,14 +96,15 @@
                                 <div class="form-group">
                                     <label for="phone_number">Contact Number</label>
                                     <div class="input-group">
-                                        <div class="input-group-prepend">
+                                        <div class="ssss">
                                             <select class="form-control" id="country_code" name="country_code">
                                                 <option value="+63">+63 (Philippines)</option>
                                             </select>
                                         </div>
-                                        <input type="tel" class="custom-input" id="phone_number" name="phone_number"
-                                            placeholder="09XXXXXXXXX" pattern="[0-9]{11}" required>
-                                        <div class="custom-invalid-feedback">Please enter a valid contact
+                                        <input type="tel" class="form-control custom-input" id="phone_number"
+                                            name="phone_number" placeholder="09XXXXXXXXX" pattern="[0-9]{11}" required>
+                                        <div class="custom-invalid-feedback">&nbsp;&nbsp;&nbsp;Please enter a valid
+                                            contact
                                             number.
                                         </div>
                                     </div>
@@ -213,7 +219,7 @@
                             < </button>
                                 <button id="next">></button>
                     </div>
-                    <div class="thumbnail">
+                    <div class="thumbnail owl-carousel owl-theme">
                         <!-- Thumbnails will be dynamically generated here -->
                     </div>
                 </div>
@@ -232,7 +238,8 @@
                                 achieved with AI/ML capabilities.</p2>
                         </div>
                         <div class="card scroll-element">
-                            <p2>This requires data sifted and transformed to deliver a reliable source that: Ensures your
+                            <p2>This requires data sifted and transformed to deliver a reliable source that: Ensures
+                                your
                                 data is usable, trustworthy and manageable: Facilitates cost-efficient storage: Improves
                                 ease of analysis: Prioritises resources: And limits compliance risks.</p2>
                         </div>
@@ -383,10 +390,10 @@
             </div>
         </div>
         <div class="be-amazed">
-            <div class="footer-image-row">
+            <div class="footer-image1">
                 <img src="images/be_amazed_orange.svg" alt="Be Amazed Orange">
             </div>
-            <div class="footer-image-row">
+            <div class="footer-image2">
                 <img src="images/be_amazed.svg" alt="Be Amazed">
             </div>
         </div>

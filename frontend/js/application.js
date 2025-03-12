@@ -34,13 +34,37 @@ document.addEventListener('DOMContentLoaded', function () {
                 .then(data => {
                     if (data.message) {
                         applyModal.modal('hide');
-                        successModal.modal('show');
+                        Swal.fire({
+                            title: "Application Submitted!",
+                            text: "Your application has been submitted successfully.",
+                            icon: "success",
+                            confirmButtonColor: "#045940"
+                        }).then(() => {
+                            // Clear the form data and reset the form states
+                            applyForm.reset();
+                            const formElements = applyForm.elements;
+                            for (let element of formElements) {
+                                element.classList.remove('is-valid');
+                                element.classList.remove('is-invalid');
+                            }
+                        });
                     } else {
-                        alert('Application submission failed: ' + data.error);
+                        Swal.fire({
+                            title: "Submission Failed",
+                            text: data.error,
+                            icon: "error",
+                            confirmButtonColor: "#d33"
+                        });
                     }
                 })
                 .catch(error => {
                     console.error('Error:', error);
+                    Swal.fire({
+                        title: "Database Error",
+                        text: "An error occurred while processing your request. Please try again later.",
+                        icon: "error",
+                        confirmButtonColor: "#d33"
+                    });
                 });
         }
     });

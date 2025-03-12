@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const projectsList = document.querySelector('.slider .list');
     const thumbnailsList = document.querySelector('.thumbnail');
 
+    // Dynamically generate HTML content for services
     data.services.forEach(service => {
         const serviceHTML = `
             <div class="item" style="background-image: url(${service.image});">
@@ -52,6 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
         servicesCarousel.innerHTML += serviceHTML;
     });
 
+    // Dynamically generate HTML content for projects and thumbnails
     data.projects.forEach((project, index) => {
         const projectHTML = `
             <div class="item ${index === 0 ? 'active' : ''}">
@@ -114,7 +116,8 @@ document.addEventListener('DOMContentLoaded', function () {
     let itemActive = 0;
 
     // event next click
-    next.onclick = function () {
+    next.onclick = function (e) {
+        e.preventDefault(); // Prevent default behavior
         itemActive = itemActive + 1;
         if (itemActive >= countItem) {
             itemActive = 0;
@@ -123,7 +126,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // event prev click
-    prev.onclick = function () {
+    prev.onclick = function (e) {
+        e.preventDefault(); // Prevent default behavior
         itemActive = itemActive - 1;
         if (itemActive < 0) {
             itemActive = countItem - 1;
@@ -189,4 +193,51 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+
+    // Prevent default drag behavior on images within thumbnails
+    document.querySelectorAll('.thumbnail .item img').forEach(img => {
+        img.addEventListener('dragstart', (e) => {
+            e.preventDefault();
+        });
+    });
+
+
+    // Initialize Owl Carousel for thumbnails
+    $(thumbnailsList).owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: false,
+        dots: false,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 3
+            },
+            1000: {
+                items: 5
+            }
+        }
+    });
+
+    // Prevent default drag behavior on images within thumbnails
+    document.querySelectorAll('.thumbnail .item img').forEach(img => {
+        img.addEventListener('dragstart', (e) => {
+            e.preventDefault();
+        });
+    });
+
+    // Handle hover effect
+    document.querySelectorAll('.thumbnail .item').forEach(item => {
+        item.addEventListener('mouseover', () => {
+            document.querySelectorAll('.thumbnail .item').forEach(i => i.classList.remove('active'));
+            item.classList.add('active');
+        });
+    });
+
+    // Stop any auto-scroll
+    window.onscroll = function () {
+        clearInterval(refreshInterval);
+    };
 });

@@ -4,12 +4,18 @@ const db = require('../database');
 
 // Fetch all applications
 router.get('/fetch_applications', (req, res) => {
-    db.all('SELECT id, first_name, last_name, email, phone_number, address, position, created_at FROM applications', [], (err, rows) => {
-        if (err) {
-            return res.status(500).json({ error: err.message });
+    db.all(
+        `SELECT id, first_name, last_name, email, phone_number, address, position, 
+        datetime(created_at, 'localtime') AS created_at FROM applications`,
+        [],
+        (err, rows) => {
+            if (err) {
+                return res.status(500).json({ error: err.message });
+            }
+            res.json(rows);
         }
-        res.json(rows);
-    });
+    );
+
 });
 
 // Serve resume files
