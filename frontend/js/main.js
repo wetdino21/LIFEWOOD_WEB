@@ -7,8 +7,13 @@ window.addEventListener("scroll", function () {
     }
 });
 
-document.querySelector('.menu-toggle').addEventListener('click', function () {
-    document.querySelector('.nav-links').classList.toggle('active');
+document.addEventListener('DOMContentLoaded', function () {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuToggle.addEventListener('click', function () {
+        navLinks.classList.toggle('active');
+    });
 });
 
 document.getElementById('language').addEventListener('change', function () {
@@ -59,8 +64,8 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="item ${index === 0 ? 'active' : ''}">
                 <img src="${project.image}" alt="${project.title}">
                 <div class="content">
-                    <p>${project.category}</p>
-                    <h2>${project.title}</h2>
+                    <p2>${project.category}</p2>
+                    <h1>${project.title}</h1>
                     <p>${project.description}</p>
                 </div>
             </div>

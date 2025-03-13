@@ -23,14 +23,18 @@
     <header>
         <nav>
             <div class="nav-container">
-                <a href="index.html" class="logo">
-                    <img src="images/lifewood_white_logo.svg" alt="Lifewood Logo">
-                    <span class="leaf leaf1">🍃</span>
-                    <span class="leaf leaf2">🍃</span>
-                    <span class="leaf leaf3">🍃</span>
-                    <span class="leaf leaf4">🍃</span>
-                </a>
-                <button class="menu-toggle">☰</button>
+                <div class="logo-menu-box">
+                    <a href="index.html" class="logo">
+                        <img src="images/lifewood_white_logo.svg" alt="Lifewood Logo">
+                        <span class="leaf leaf1">🍃</span>
+                        <span class="leaf leaf2">🍃</span>
+                        <span class="leaf leaf3">🍃</span>
+                        <span class="leaf leaf4">🍃</span>
+                    </a>
+                    <button class="menu-toggle" aria-label="Toggle navigation">
+                        ☰
+                    </button>
+                </div>
                 <ul class="nav-links">
                     <li><a href="#services">Service</a></li>
                     <li><a href="#projects">Projects</a></li>
@@ -44,13 +48,22 @@
                     <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@lifewood.com&su=Contact%20Form%20Submission&body=First%20Name:%0D%0ALast%20Name:%0D%0AEmail:%0D%0ACompany:%0D%0ACountry:%0D%0APhone%20Number:%0D%0AMessage:"
                             target="_blank">Contact</a>
                     </li>
+
+                    <li class="apply-now-container" data-toggle="modal" data-target="#applyModal">
+                        <a1  class="apply-now">
+                            Apply Now
+                            <span class="leaf leaf1">🍃</span>
+                            <span class="leaf leaf2">🍃</span>
+                            <span class="leaf leaf3">🍃</span>
+                        </a1>
+                    </li>
                 </ul>
-                <button class="apply-now" data-toggle="modal" data-target="#applyModal">
+                <!-- <button class="apply-now" data-toggle="modal" data-target="#applyModal">
                     Apply Now
                     <span class="leaf leaf1">🍃</span>
                     <span class="leaf leaf2">🍃</span>
                     <span class="leaf leaf3">🍃</span>
-                </button>
+                </button> -->
             </div>
         </nav>
     </header>
@@ -245,6 +258,7 @@
                         </div>
                     </div>
                     <div class="video-container scroll-element">
+                        <img src="../images/transformation_vid_bg2.jpg" alt="bg-image">
                         <video src="videos/transformation-video.mp4" controls></video>
                     </div>
                     <h2 class="scroll-element">TRANSFORMATION IS MORE</h2>
@@ -307,10 +321,108 @@
                 </div>
             </section>
 
-            <section id="about">
-                <h1 data-en="About Us" data-zh="关于我们">About Us</h1>
-                <p data-en="Information about the company." data-zh="关于公司的信息。">Information about the company.</p>
+            <section id="about" class="about-section">
+                <h2 class="line-title" data-en="Our Company" data-zh="我们的公司">OUR COMPANY</h2>
+                <label class="subtitle">Founded in 2004, Lifewood is a highly-respected provider of AI data solutions
+                    and services.</label>
+
+                <div class="container">
+                    <p>While we are motivated by business and economic objectives we remain committed to our core
+                        business beliefs that shape our corporate and individual behaviour around the world.</p>
+
+                    <div class="image-container">
+                        <img src="images/our_company.jpg" alt="Our Company Image">
+                    </div>
+
+                    <h1 class="super-big-text">WE VALUE</h1>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="cardbox">
+                                <h3>DIVERSITY</h3>
+                                <p>We celebrate differences in belief, religion, philosophy and ways of life, because
+                                    they bring unique perspectives and ideas that encourage everyone to move forward.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="cardbox">
+                                <h3>CARING</h3>
+                                <p>We care for every person deeply and equally, because without care work becomes
+                                    meaningless.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="cardbox">
+                                <h3>INNOVATION</h3>
+                                <p>Innovation is at the heart of all we do, enriching our lives and challenging us to
+                                    continually improve ourselves and our service.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="cardbox">
+                                <h3>INTEGRITY</h3>
+                                <p>We are dedicated to act ethically and sustainably in everything we do. More than just
+                                    the bare minimum, it is the basis of our existence as a company.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="new-design-card">
+                                <p>At Lifewood, we connect with the thousands of people who work with us in countries
+                                    often described as 'developing economies' and we realise that we are being offered
+                                    the chance to provide opportunities.</p>
+                                <p>Opportunities for employment with wages high enough to change people's lives.
+                                    Opportunities to teach and provide computing and tech-skills equal to anywhere in
+                                    the world, making our people the breadwinners in their families.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="new-design-card">
+                                <p>For instance, in Bangladesh we employ a high proportion of women and even more
+                                    surprisingly, the physically disabled. We have been especially inspired by the
+                                    example of Tilotom, the eldest son of a low-income family. Physically disabled since
+                                    birth, he's now the family's primary breadwinner, thanks to Lifewood's training and
+                                    his determination to overcome all obstacles. He has quickly progressed to become one
+                                    of the company's best performers, managing a large portfolio of responsibilities.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="image-container">
+                        <img src="images/our_company2.jpg" alt="Our Company Story Image">
+                    </div>
+
+                    <p>This is the Lifewood difference. Using AI and GPT we are constantly improving the way we go about
+                        our business, but we never lose sight of the truth, that what we do must have a human benefit
+                        for our people and our customers around the world.</p>
+                </div>
             </section>
+
+            <section id="careers" class="careers-section">
+                <h2 class="line-title" data-en="Careers" data-zh="职业">CAREERS</h2>
+                <label class="subtitle">Innovation, adaptability and the rapid development of new services separates
+                    companies that constantly deliver at the highest level from their competitors.</label>
+
+                <div class="container">
+                    <p>This means motivating and growing teams that can initiate and learn on the run, in order to
+                        deliver evolving technologies and targets. It's a big challenge, but innovation, especially
+                        across borders, has never been the easy path.</p>
+
+                    <div class="image-container">
+                        <img src="images/careers.jpg" alt="Careers Image">
+                    </div>
+
+                    <p>If you're looking to turn the page on a new chapter in your career make contact with us today. At
+                        Lifewood, the adventure is always before you: it's why we've been described as "always on never
+                        off."</p>
+                </div>
+            </section>
+
+            <div class="below-space"></div>
         </main>
     </div>
 
