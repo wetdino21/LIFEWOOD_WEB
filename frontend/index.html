@@ -32,7 +32,6 @@
                         <span class="leaf leaf4">🍃</span>
                     </a>
                     <button class="menu-toggle" aria-label="Toggle navigation">
-                        ☰
                     </button>
                 </div>
                 <ul class="nav-links">
@@ -50,7 +49,7 @@
                     </li>
 
                     <li class="apply-now-container" data-toggle="modal" data-target="#applyModal">
-                        <a1  class="apply-now">
+                        <a1 class="apply-now">
                             Apply Now
                             <span class="leaf leaf1">🍃</span>
                             <span class="leaf leaf2">🍃</span>
@@ -180,6 +179,16 @@
         </div>
     </div>
 
+    <!-- Project Details Modal (Initially Hidden) -->
+    <div id="project-details-modal" class="project-modal-class">
+        <div class="project-modal-content">
+            <span class="close-btn" onclick="closeProjectDetails()">&times;</span>
+            <div id="project-details-content">
+                <!-- Project details will be dynamically loaded here -->
+            </div>
+        </div>
+    </div>
+
     <div class="hero">
         <div class="hero-content">
             <h1>FUTURE POWER</h1>
@@ -236,6 +245,10 @@
                         <!-- Thumbnails will be dynamically generated here -->
                     </div>
                 </div>
+
+                <div class="center-big-text">
+                    <h1>No one makes new discoveries by standing still.</h1>
+                </div>
             </section>
 
             <section id="transformation" class="transformation-section">
@@ -258,7 +271,7 @@
                         </div>
                     </div>
                     <div class="video-container scroll-element">
-                        <img src="../images/transformation_vid_bg2.jpg" alt="bg-image">
+                        <img src="images/transformation_vid_bg2.jpg" alt="bg-image">
                         <video src="videos/transformation-video.mp4" controls></video>
                     </div>
                     <h2 class="scroll-element">TRANSFORMATION IS MORE</h2>
@@ -520,8 +533,8 @@
     <script src="js/data.js"></script>
     <script src="js/transformation.js"></script>
     <script src="js/global-scale.js"></script>
-    <script src="js/main.js"></script>
     <script src="js/application.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

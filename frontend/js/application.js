@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         applyModal.modal('hide');
                         Swal.fire({
                             title: "Application Submitted!",
-                            text: "Your application has been submitted successfully.",
+                            text: "You're one step closer! Your application has been successfully submitted.",
                             icon: "success",
                             confirmButtonColor: "#045940"
                         }).then(() => {

@@ -13,34 +13,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     menuToggle.addEventListener('click', function () {
         navLinks.classList.toggle('active');
+        menuToggle.classList.toggle('toggled');
     });
-});
 
-document.getElementById('language').addEventListener('change', function () {
-    const lang = this.value;
-    document.querySelectorAll('[data-en]').forEach(el => {
-        el.textContent = el.getAttribute(`data-${lang}`);
-    });
-});
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        const targetElement = document.querySelector(this.getAttribute('href'));
-        if (targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop,
-                behavior: 'smooth'
-            });
-        } else {
-            console.warn(`Element not found: ${this.getAttribute('href')}`);
-        }
-    });
-});
-
-// Dynamically generate HTML content for services and projects
-document.addEventListener('DOMContentLoaded', function () {
     const servicesCarousel = document.querySelector('.service-carousel .owl-carousel');
     const projectsList = document.querySelector('.slider .list');
     const thumbnailsList = document.querySelector('.thumbnail');
@@ -51,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="item" style="background-image: url(${service.image});">
                 <div class="item-desc">
                     <h3>${service.title}</h3>
-                    <p>${service.description}</p>
+                    <p>${service.desc}</p>
                 </div>
             </div>
         `;
@@ -66,7 +41,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 <div class="content">
                     <p2>${project.category}</p2>
                     <h1>${project.title}</h1>
-                    <p>${project.description}</p>
+                    <p>${project.desc}</p>
+                    <button class="read-more-btn" data-index="${index}">READ MORE <span class="next-icon">➔</span></button>
                 </div>
             </div>
         `;
@@ -81,6 +57,23 @@ document.addEventListener('DOMContentLoaded', function () {
             </div>
         `;
         thumbnailsList.innerHTML += thumbnailHTML;
+    });
+
+    // Add event listeners to "READ MORE" buttons
+    document.querySelectorAll('.read-more-btn').forEach(button => {
+        button.addEventListener('click', function () {
+            console.log('click');
+            const projectIndex = this.getAttribute('data-index');
+            showProjectDetails(projectIndex);
+        });
+    });
+
+    // Close modal when clicking outside of it
+    window.addEventListener('click', function (event) {
+        const modal = document.getElementById("project-details-modal");
+        if (event.target === modal) {
+            closeProjectDetails();
+        }
     });
 
     var owl = $(".custom-carousel").owlCarousel({
@@ -245,4 +238,77 @@ document.addEventListener('DOMContentLoaded', function () {
     window.onscroll = function () {
         clearInterval(refreshInterval);
     };
+});
+
+function showProjectDetails(index) {
+    // Show project details modal
+    const modal = document.getElementById("project-details-modal");
+    modal.style.display = "flex";
+    document.body.classList.add('modal-active');
+
+    // Load project details
+    const project = data.projects[index];
+    const projectDetailsContainer = document.getElementById('project-details-content');
+
+    const projectDetailsHTML = `
+        <div class="project-details-header">
+            <img src="${project.image}" alt="${project.title}">
+            <h1>${project.title}</h1>
+        </div>
+        <div class="project-details-content">
+            <p>${project.desc}</p>
+            ${project.image2 ? `<img src="${project.image2}" alt="${project.title2}">` : project.video ? `<video src="${project.video}" controls></video>` : ''}
+            ${project.title2 ? `<h2>${project.title2}</h2>` : ''}
+            ${project.desc2 ? `<p>${project.desc2}</p>` : ''}
+            ${project.desc3 ? `<p>${project.desc3}</p>` : ''}
+            ${project.subjecttitle1 ? `<h3>${project.subjecttitle1}</h3><p>${project.subjectdesc1}</p><img src="${project.subjectimage1}" alt="${project.subjecttitle1}">` : ''}
+            ${project.subjecttitle2 ? `<h3>${project.subjecttitle2}</h3><p>${project.subjectdesc2}</p><img src="${project.subjectimage2}" alt="${project.subjecttitle2}">` : ''}
+            ${project.subjecttitle3 ? `<h3>${project.subjecttitle3}</h3><p>${project.subjectdesc3}</p><img src="${project.subjectimage3}" alt="${project.subjecttitle3}">` : ''}
+            ${project.list ? `<ul>${project.list.map(item => `<li>${item}</li>`).join('')}</ul>` : ''}
+        </div>
+    `;
+
+    projectDetailsContainer.innerHTML = projectDetailsHTML;
+}
+
+function closeProjectDetails() {
+    // Hide project details modal
+    const modal = document.getElementById("project-details-modal");
+    modal.style.display = "none";
+    document.body.classList.remove('modal-active');
+}
+
+function closeProjectDetails() {
+    // Hide project details modal
+    const modal = document.getElementById("project-details-modal");
+    modal.style.display = "none";
+    document.body.classList.remove('modal-active');
+}
+
+document.getElementById('language').addEventListener('change', function () {
+    const lang = this.value;
+    document.querySelectorAll('[data-en]').forEach(el => {
+        el.textContent = el.getAttribute(`data-${lang}`);
+    });
+});
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const targetElement = document.querySelector(this.getAttribute('href'));
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop,
+                behavior: 'smooth'
+            });
+        } else {
+            console.warn(`Element not found: ${this.getAttribute('href')}`);
+        }
+    });
+});
+
+// Dynamically generate HTML content for services and projects
+document.addEventListener('DOMContentLoaded', function () {
+
 });
