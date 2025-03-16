@@ -256,15 +256,65 @@ function showProjectDetails(index) {
             <h1>${project.title}</h1>
         </div>
         <div class="project-details-content">
-            <p>${project.desc}</p>
+            <p class="desc1-separator">${project.desc}</p>
             ${project.image2 ? `<img src="${project.image2}" alt="${project.title2}">` : project.video ? `<video src="${project.video}" controls></video>` : ''}
-            ${project.title2 ? `<h2>${project.title2}</h2>` : ''}
-            ${project.desc2 ? `<p>${project.desc2}</p>` : ''}
-            ${project.desc3 ? `<p>${project.desc3}</p>` : ''}
-            ${project.subjecttitle1 ? `<h3>${project.subjecttitle1}</h3><p>${project.subjectdesc1}</p><img src="${project.subjectimage1}" alt="${project.subjecttitle1}">` : ''}
-            ${project.subjecttitle2 ? `<h3>${project.subjecttitle2}</h3><p>${project.subjectdesc2}</p><img src="${project.subjectimage2}" alt="${project.subjecttitle2}">` : ''}
-            ${project.subjecttitle3 ? `<h3>${project.subjecttitle3}</h3><p>${project.subjectdesc3}</p><img src="${project.subjectimage3}" alt="${project.subjecttitle3}">` : ''}
-            ${project.list ? `<ul>${project.list.map(item => `<li>${item}</li>`).join('')}</ul>` : ''}
+            ${project.title2 ? `<h2 class="title2-separator">${project.title2}</h2>` : ''}
+            ${project.desc2 || project.desc3
+            ? `<div class="desc-row">
+                        ${project.desc2 ? `<p class="hover-gradient">${project.desc2}</p>` : ''}
+                        ${project.desc3 ? `<p class="hover-gradient">${project.desc3}</p>` : ''}
+                   </div>`
+            : ''
+        }
+            ${project.subjecttitle1 || project.subjecttitle2 || project.subjecttitle3
+            ? `<div class="subject-rows">
+                        ${project.subjecttitle1 ? `
+                            <div class="subject-row">
+                                <div class="subject-column">
+                                    <h3>${project.subjecttitle1}</h3>
+                                    <p>${project.subjectdesc1}</p>
+                                </div>
+                                <div class="subject-column2">
+                                    <img src="${project.subjectimage1}" alt="${project.subjecttitle1}">
+                                </div>
+                            </div>` : ''}
+                        ${project.subjecttitle2 ? `
+                            <div class="subject-row">
+                                <div class="subject-column">
+                                    <h3>${project.subjecttitle2}</h3>
+                                    <p>${project.subjectdesc2}</p>
+                                </div>
+                                <div class="subject-column2">
+                                    <img src="${project.subjectimage2}" alt="${project.subjecttitle2}">
+                                </div>
+                            </div>` : ''}
+                        ${project.subjecttitle3 ? `
+                            <div class="subject-row">
+                                <div class="subject-column">
+                                    <h3>${project.subjecttitle3}</h3>
+                                    <p>${project.subjectdesc3}</p>
+                                </div>
+                                <div class="subject-column2">
+                                    <img src="${project.subjectimage3}" alt="${project.subjecttitle3}">
+                                </div>
+                            </div>` : ''}
+                   </div>`
+            : ''
+        }
+        ${
+            project.list
+                ? `
+                    <h3 class="list-title">${project.title3}</h3>
+                    <div class="list-container">
+                        ${project.list.map((item, index) => `
+                            <div class="list-card">
+                                <p><strong>${String(index + 1).padStart(2, '0')}.</strong> ${item}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+                `
+                : ''
+        }
         </div>
     `;
 
